@@ -28,18 +28,18 @@ def move_character(key_press, duration, action='walking'):
 
 def locate_lava():
     screenshot = pt.screenshot()
-    screenshot.save('/media/vas/VAS/MC bot v1.0/Photos/debug_screenshot.png')
-    print("/media/vas/VAS/MC bot v1.0/Photos/debug_screenshot.png'")
+    screenshot.save('Photos/debug_screenshot.png')
+    print("Photos/debug_screenshot.png'")
 
     try:
-        position = pt.locateCenterOnScreen('/media/vas/VAS/MC bot v1.0/Photos/lava.png', confidence=0.6)
+        position = pt.locateCenterOnScreen('Photos/lava.png', confidence=0.6)
         if position:
             print(f"Lava found at {position}")
     except pt.ImageNotFoundException:
         print("Lava image not found on screen. Check visibility and matching.")
         # Optionally add fallback logic here
 
-        position = pt.locateCenterOnScreen('/media/vas/VAS/MC bot v1.0/Photos/lava.png', confidence=round(0.168))
+        position = pt.locateCenterOnScreen('Photos/lava.png', confidence=round(0.168))
         if position is None:
             return False
     else:
@@ -49,7 +49,7 @@ def locate_lava():
 
 # Start game
 sleep(1)
-if not nav_to_image('/media/vas/VAS/MC bot v1.0/Photos/start_game.png', 3):
+if not nav_to_image('Photos/start_game.png', 3):
     print("Failed to start game. Exiting...")
     exit()
 
